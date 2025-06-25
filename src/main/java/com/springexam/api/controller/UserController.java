@@ -16,9 +16,8 @@ import com.springexam.api.dto.ProjectDTO;
 import com.springexam.api.dto.UserDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import com.springexam.api.service.ProjectService;
 import java.util.List;
+import com.springexam.api.dto.TaskDTO;
 
 
 
@@ -55,6 +54,13 @@ public class UserController {
     @GetMapping("/{id}/projects")
     public ResponseEntity<List<ProjectDTO>> getProjectsByUserId(@PathVariable Long id) {
         return userService.getProjectsByUserId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/{id}/tasks")
+    public ResponseEntity<List<TaskDTO>> getTasksByUserId(@PathVariable Long id) {
+        return userService.getTasksByUserId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

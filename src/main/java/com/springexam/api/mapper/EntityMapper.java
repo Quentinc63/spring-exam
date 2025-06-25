@@ -1,5 +1,4 @@
 package com.springexam.api.mapper;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 import com.springexam.api.model.User;
@@ -61,6 +60,8 @@ public class EntityMapper {
         dto.setTitle(task.getTitle());
         dto.setUserId(userId);
         dto.setProjectId(projectId);
+        dto.setStatus(task.getStatus());
+        
         return dto;
     }
 
@@ -72,6 +73,7 @@ public class EntityMapper {
         task.setTitle(dto.getTitle());
         task.setUser(user);
         task.setProject(project);
+        task.setStatus(dto.getStatus());
         return task;
     }    
     

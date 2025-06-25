@@ -2,6 +2,8 @@ package com.springexam.api.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import com.springexam.api.service.TaskService;
 
 import com.springexam.api.model.Task;
 import com.springexam.api.dto.TaskDTO;
+import com.springexam.api.dto.TaskStatusDTO;
 
 import jakarta.validation.Valid;
 
@@ -31,6 +34,11 @@ public class TaskController {
     public ResponseEntity<TaskDTO> createTask(@Valid @RequestBody Task task) {
         Task savedTask = taskService.save(task);
         return ResponseEntity.status(HttpStatus.CREATED).body(mapper.toTaskDTO(savedTask));
+    }
+    @PatchMapping("/{id}")
+    public ResponseEntity<Task> updateTaskStatus(@PathVariable Long id, @RequestBody TaskStatusDTO statusDTO) {
+        Task updatedTask = taskService.updateStatus(id, statusDTO);
+        return ResponseEntity.ok(updatedTask);
     }
     
     

@@ -35,12 +35,29 @@ POST http://localhost:8080/tasks
 Content-Type: application/json
 
 {
-  "title": "Test Task",
+  "title": "Test TaskzzzzzzZzS",
+  "status": "TODO",
   "project": {
     "id": 1
   },
   "user": {
     "id": 1
   }
+}
+
+###
+GET http://localhost:8080/users/1/tasks
+
+
+### 
+GET http://localhost:8080/projects/1/tasks
+
+
+###
+PATCH http://localhost:8080/tasks/1
+Content-Type: application/json
+
+{
+  "status": "IN_PROGRESS"
 }
 

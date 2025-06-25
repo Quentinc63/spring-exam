@@ -1,4 +1,6 @@
 package com.springexam.api.dto;
+import com.springexam.api.model.TaskStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,5 +14,6 @@ public class TaskDTO {
     private String title;
     private Long userId;
     private Long projectId;
+    private TaskStatus status;
     
 }

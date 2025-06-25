@@ -1,7 +1,5 @@
 package com.springexam.api.repository;
-import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.Optional;
 
 import com.springexam.api.model.User;
 
