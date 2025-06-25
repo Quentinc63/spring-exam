@@ -1,13 +1,13 @@
 package com.springexam.api.controller;
-import org.springframework.data.util.TypeCollector;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.springexam.api.dto.ProjectDTO;
-import com.springexam.api.dto.UserDTO;
+
 import com.springexam.api.model.Project;
-import com.springexam.api.model.User;
+
 import com.springexam.api.service.ProjectService;
 import com.springexam.api.dto.TaskDTO;
 
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.springexam.api.mapper.EntityMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 

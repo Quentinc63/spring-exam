@@ -16,6 +16,7 @@ import com.springexam.api.dto.ProjectDTO;
 import com.springexam.api.dto.TaskDTO;
 import com.springexam.api.repository.ProjectRepository;
 import com.springexam.api.repository.TaskRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +26,11 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProjectRepository projectRepository;
     private final TaskRepository taskRepository;
+    private final PasswordEncoder passwordEncoder;
     public User save(User user) {
+        if  (user.getPassword() != null && !user.getPassword().isEmpty()) {
+           user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
         return userRepository.save(user);
     }
 

@@ -2,8 +2,8 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-    "username": "zzezeaezaer",
-    "email": "qzcaa@html.fr",
+    "username": "zzezeaeeeeerrezezer",
+    "email": "qzcaaaa@ae.fe",
     "password": "kek1234"
 }
 
@@ -35,7 +35,7 @@ POST http://localhost:8080/tasks
 Content-Type: application/json
 
 {
-  "title": "Test TaskzzzzzzZzS",
+  "title": "Test TaskzzzzzzZzzzeze",
   "status": "TODO",
   "project": {
     "id": 1
@@ -61,3 +61,11 @@ Content-Type: application/json
   "status": "IN_PROGRESS"
 }
 
+###
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "zzezeaeeeeerrezezer",
+  "password": "kek1234"
+}
