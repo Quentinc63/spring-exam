@@ -38,12 +38,6 @@ public class ProjectController {
         Project savedProject = projectService.save(project);
         return ResponseEntity.status(HttpStatus.CREATED).body(mapper.toProjectDTO(savedProject));
     }
-    // @GetMapping("/{id}")
-    // public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
-    //     return userService.findById(id)
-    //             .map(user -> ResponseEntity.ok(mapper.toUserDTO(user)))
-    //             .orElse(ResponseEntity.notFound().build());
-    // }
     @GetMapping("/{id}")
     public ResponseEntity<ProjectDTO> getProjectById(@PathVariable Long id) {
         return projectService.findById(id)

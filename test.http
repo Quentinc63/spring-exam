@@ -29,3 +29,18 @@ GET http://localhost:8080/users/1/projects
 ###
 
 GET http://localhost:8080/projects/1
+
+###
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "title": "Test Task",
+  "project": {
+    "id": 1
+  },
+  "user": {
+    "id": 1
+  }
+}
+

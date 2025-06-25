@@ -6,6 +6,8 @@ import com.springexam.api.model.User;
 import com.springexam.api.dto.UserDTO;
 import com.springexam.api.model.Project;
 import com.springexam.api.dto.ProjectDTO;
+import com.springexam.api.dto.TaskDTO;
+import com.springexam.api.model.Task;
 
 
 @Component
@@ -47,6 +49,30 @@ public class EntityMapper {
         project.setName(dto.getName());
         project.setUser(user);
         return project;
+    }
+    public TaskDTO toTaskDTO(Task task) {
+        if (task == null) return null;
+
+        Long userId = task.getUser() != null ? task.getUser().getId() : null;
+        Long projectId = task.getProject() != null ? task.getProject().getId() : null;
+
+        TaskDTO dto = new TaskDTO();
+        dto.setId(task.getId());
+        dto.setTitle(task.getTitle());
+        dto.setUserId(userId);
+        dto.setProjectId(projectId);
+        return dto;
+    }
+
+    public Task toTask(TaskDTO dto, User user, Project project) {
+        if (dto == null) return null;
+
+        Task task = new Task();
+        task.setId(dto.getId());
+        task.setTitle(dto.getTitle());
+        task.setUser(user);
+        task.setProject(project);
+        return task;
     }    
     
     
