@@ -10,3 +10,16 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/users/1
 
+###
+
+POST http://localhost:8080/projects
+Content-Type: application/json
+
+{
+  "name": "Test ProjezczzteE",
+  "user": {
+    "id": 1
+  }
+}
+
+

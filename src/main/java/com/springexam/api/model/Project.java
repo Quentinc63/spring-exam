@@ -29,12 +29,13 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 50, nullable = false, unique = true)
+    @Column(name = "name", length = 50, nullable = false, unique = false)
     @NotBlank(message = "Un nom est obligatoire")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @NotBlank(message = "L'utilisateur est obligatoire")
     private User user;    
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
