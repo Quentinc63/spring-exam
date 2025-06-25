@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import com.springexam.api.repository.UserRepository;
 import com.springexam.api.model.User;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,5 +16,9 @@ public class UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
-    
+
+    @Transactional(readOnly = true)
+    public Optional<User> findById(Long id) {
+        return userRepository.findById(id);
+    }
 }

@@ -1,0 +1,12 @@
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "username": "qzca631863",
+    "email": "qzca@html.fr",
+    "password": "kek1234"
+}
+
+###
+GET http://localhost:8080/users/1
+
