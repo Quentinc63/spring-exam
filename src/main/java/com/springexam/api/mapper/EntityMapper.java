@@ -1,4 +1,6 @@
 package com.springexam.api.mapper;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 import com.springexam.api.model.User;
 import com.springexam.api.dto.UserDTO;
@@ -46,5 +48,6 @@ public class EntityMapper {
         project.setUser(user);
         return project;
     }    
+    
     
 }

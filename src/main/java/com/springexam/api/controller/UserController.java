@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import com.springexam.api.model.User;
-
+import com.springexam.api.dto.ProjectDTO;
 import com.springexam.api.dto.UserDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.springexam.api.service.ProjectService;
+import java.util.List;
+
 
 
 
@@ -29,9 +32,12 @@ public class UserController {
 
     private final UserService userService;
 
+
+
     public UserController(EntityMapper mapper, UserService userService) {
         this.mapper = mapper;
         this.userService = userService;
+
     }
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@Valid @RequestBody User user) {
@@ -45,5 +51,13 @@ public class UserController {
                 .map(user -> ResponseEntity.ok(mapper.toUserDTO(user)))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/{id}/projects")
+    public ResponseEntity<List<ProjectDTO>> getProjectsByUserId(@PathVariable Long id) {
+        return userService.getProjectsByUserId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     
 }

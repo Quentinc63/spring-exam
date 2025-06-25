@@ -35,7 +35,6 @@ public class Project {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    @NotBlank(message = "L'utilisateur est obligatoire")
     private User user;    
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
